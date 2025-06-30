@@ -1,3 +1,4 @@
+<!-- STARTS HERE -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +35,10 @@
       margin-bottom: 20px;
       border-bottom: 1px solid #00fff7;
       padding-bottom: 8px;
+    }
+    h3 {
+      margin-top: 20px;
+      color: #00d4ff;
     }
     .tagline {
       font-size: 1rem;
@@ -181,6 +186,31 @@
     </ul>
   </section>
 
+  <section class="section">
+    <h2>🛡️ How I Fought a Laptop Hijack: My First Cybersecurity Battle</h2>
+    <p>
+      This was the moment that sparked my journey into cybersecurity. My laptop was hijacked — acting on its own, strange tabs opening, suspicious activities everywhere. But instead of panicking, I dove into action.
+    </p>
+    <p>
+      I changed my DNS settings to Cloudflare, scanned the system with Malwarebytes, switched to a privacy-focused browser (Brave), and double-checked my accounts for breaches using HaveIBeenPwned and email security tools. Slowly but surely, I locked everything down.
+    </p>
+
+    <h3>🛠️ Tools & Tactics Used:</h3>
+    <ul>
+      <li>Malwarebytes Full System Scan</li>
+      <li>Cloudflare DNS for secure browsing</li>
+      <li>Brave Browser (for privacy)</li>
+      <li>HaveIBeenPwned email check</li>
+      <li>Password reset across critical accounts</li>
+      <li>WHOIS lookup to understand attacker IP</li>
+    </ul>
+
+    <h3>🎯 Outcome:</h3>
+    <p>
+      I successfully restored my laptop, strengthened my digital hygiene, and more importantly — discovered my passion for cybersecurity. It felt like solving a mystery in real life, and that thrill never left me.
+    </p>
+  </section>
+
   <footer>
     🛡️ Built with 💻 by Hafsa Noman | All Rights Reserved © 2025
   </footer>
@@ -188,7 +218,6 @@
   <div id="backToTop" onclick="scrollToTop()">⬆</div>
 
   <script>
-    // Scroll reveal
     const sections = document.querySelectorAll(".section");
     const showSection = () => {
       const triggerBottom = window.innerHeight * 0.85;
@@ -202,7 +231,6 @@
     window.addEventListener("scroll", showSection);
     window.addEventListener("load", showSection);
 
-    // Back to top
     const backToTop = document.getElementById("backToTop");
     window.addEventListener("scroll", () => {
       if (window.scrollY > 300) {
@@ -218,3 +246,4 @@
 
 </body>
 </html>
+<!-- ENDS HERE -->
