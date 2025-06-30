@@ -4,8 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hafsa Noman | Cybersecurity Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Courier New', monospace;
       background-color: #0d0d0d;
@@ -18,20 +20,37 @@
       padding: 30px;
       text-align: center;
       box-shadow: 0 0 15px rgba(0,255,255,0.4);
+      position: relative;
     }
     h1 {
       font-size: 3rem;
       color: #00fff7;
       text-shadow: 0 0 10px #00fff7;
     }
-    p, li {
-      font-size: 1.1rem;
-      line-height: 1.7;
+    .hacker-tagline {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-size: 0.9rem;
+      color: #00fff7;
+      animation: hackerFloat 3s infinite ease-in-out;
+    }
+    @keyframes hackerFloat {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0px); }
     }
     .section {
       padding: 40px 20px;
       max-width: 900px;
       margin: auto;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-in-out;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .glow-btn {
       display: inline-block;
@@ -52,10 +71,13 @@
       transform: scale(1.07);
       box-shadow: 0 0 25px #00fff7, 0 0 35px #00fff7;
     }
-    @keyframes pulseGlow {
-      0% { box-shadow: 0 0 10px #00fff7; }
-      50% { box-shadow: 0 0 25px #00fff7, 0 0 40px #00fff7; }
-      100% { box-shadow: 0 0 10px #00fff7; }
+    a {
+      color: #00fff7;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+    a:hover {
+      text-shadow: 0 0 10px #00fff7;
     }
     ul {
       list-style-type: square;
@@ -68,6 +90,25 @@
       margin-top: 30px;
       font-size: 0.9rem;
     }
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #00fff7;
+      color: #000;
+      padding: 10px 15px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      box-shadow: 0 0 15px #00fff7;
+      cursor: pointer;
+      display: none;
+      z-index: 999;
+    }
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 10px #00fff7; }
+      50% { box-shadow: 0 0 25px #00fff7, 0 0 40px #00fff7; }
+      100% { box-shadow: 0 0 10px #00fff7; }
+    }
   </style>
 </head>
 <body>
@@ -75,6 +116,7 @@
   <header>
     <h1>Hafsa Noman</h1>
     <p>Cybersecurity Enthusiast & Digital Problem Solver</p>
+    <div class="hacker-tagline">👩‍💻 I break firewalls, not hearts</div>
   </header>
 
   <section class="section">
@@ -132,6 +174,37 @@
   <footer>
     🛡️ Built with 💻 by Hafsa Noman | All Rights Reserved © 2025
   </footer>
+
+  <div id="backToTop" onclick="scrollToTop()">⬆</div>
+
+  <script>
+    // Show sections on scroll
+    const sections = document.querySelectorAll(".section");
+    const showSection = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < triggerBottom) {
+          section.classList.add("visible");
+        }
+      });
+    };
+    window.addEventListener("scroll", showSection);
+    window.addEventListener("load", showSection);
+
+    // Back to top button
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTop.style.display = "block";
+      } else {
+        backToTop.style.display = "none";
+      }
+    });
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+  </script>
 
 </body>
 </html>
